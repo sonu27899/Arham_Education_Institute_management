@@ -1,0 +1,166 @@
+<div class="container">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Update Announcement</h4>
+              <p class="card-category">Announcement is being Updated</p>
+            </div>
+            <div class="card-body">
+              <form class="example-form" (ngSubmit)="onclickupdate()" #f="ngForm">
+                <div class="rows">
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Title" (keypress)="keyPressText($event)" ngModel #title="ngModel" required
+                      [(ngModel)]="Title" name="title">
+                    <mat-error *ngIf="title?.hasError('required')">
+                      Title is Required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Announcement" name="announcement" #announcement="ngModel" [(ngModel)]="Announcemnet" required>
+                    <mat-error *ngIf="announcement.hasError('required')">
+                      Announcement is required
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker" name="Date" [(ngModel)]="Date" placeholder="Announcement Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+
+                 </div>
+                <div class="rows">
+                  <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Update Announcement</button>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <h1>Add-Employee</h1>
+
+  <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
+    <div class="rows">
+
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Types of Employee" required #employee_type="ngModel" name="Employee_type" [(ngModel)]="Employee_type"
+          class="example-full-width">
+          <mat-option *ngFor="let item of type" [value]="item">
+            {{item}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="employee_type.hasError('required')">
+          Employee Type Must be selected
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email_id" type="text" [(ngModel)]="Email_id" name="Email_id" #id="ngModel"
+          email required>
+        <mat-error *ngIf="id.hasError('email')">
+          Email is Invalid
+        </mat-error>
+        <mat-error *ngIf="id.hasError('required')">
+          Email is Required
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password:" type="text" [(ngModel)]="Password" name="Password" #pass="ngModel"
+          required minlength="6">
+        <mat-error *ngIf="pass.hasError('min')">
+          Password is too short
+        </mat-error>
+        <mat-error *ngIf="pass.hasError('required')">
+          Password is Required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Employee Name" ngModel #employee_name="ngModel" required [(ngModel)]="Name" name="Name">
+        <mat-error *ngIf="employee_name?.hasError('required')">
+          Employee Name is Required
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Mobile_no:" type="text" name="Mobile_no" [(ngModel)]="Mobile_no" #mob1="ngModel"
+          required required minlength="10">
+        <mat-error *ngIf="mob1.hasError('min')">
+          Required 10 Digit
+        </mat-error>
+        <mat-error *ngIf="mob1.hasError('required')">
+          Mobile Number is Required
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Address" name="Address" #ad="ngModel" [(ngModel)]="Address" required>
+        <mat-error *ngIf="ad.hasError('required')">
+          Address is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" name="DOB" [(ngModel)]="DOB" placeholder="Date of birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Salary" required #salary="ngModel" type="number" [(ngModel)]="Salary" name="Salary" required min="1000">
+        <mat-error *ngIf="salary?.hasError('required')">
+          Salary is Must Required
+        </mat-error>
+        <mat-error *ngIf="salary?.hasError('min')">
+          Salary too low
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <br><br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">Add</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+
+  </form>
+</div> -->

@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header" >
+              <h4 class="card-title" style="color: #3f51b5;">Student Profile</h4>
+            </div>
+            <div class="card-body">
+              <form class="example-form" (ngSubmit)="onclickUpdate()" #f="ngForm">
+                <div class="rows">
+
+                  <mat-form-field class="example-full-width">
+                      <input disabled matInput placeholder="Student Name" (keypress)="keyPressText($event)" ngModel #Student_name="ngModel" required
+                        [(ngModel)]="Name" name="Name">
+                      <mat-error *ngIf="Student_name?.hasError('required')">
+                        Student Name is Required
+                      </mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="example-full-width">
+                      <input disabled matInput placeholder="Batch Name" required
+                        [(ngModel)]="Batch_no" name="Batch_no">
+                    </mat-form-field>
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <input disabled matInput placeholder="Email_id" type="text" [(ngModel)]="Email_id" name="Email_id"
+                      #email_id="ngModel" email required>
+                    <mat-error *ngIf="email_id.hasError('email')">
+                      Email is Invalid
+                    </mat-error>
+                    <mat-error *ngIf="email_id.hasError('required')">
+                      Email is Required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Phone_no:" (keypress)="keyPressNumber($event)" type="text" name="Phone_no" [(ngModel)]="Phone_no"
+                        #mob1="ngModel" required required minlength="10">
+                      <mat-error *ngIf="mob1.hasError('min')">
+                        Required 10 Digit
+                      </mat-error>
+                      <mat-error *ngIf="mob1.hasError('required')">
+                        Mobile Number is Required
+                      </mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="example-full-width">
+                      <input matInput disabled placeholder="Student's parent Name" (keypress)="keyPressText($event)" ngModel #parent_name="ngModel" required
+                        [(ngModel)]="Parent_name" name="Parent_name">
+                      <mat-error *ngIf="parent_name?.hasError('required')">
+                        Student's parent Name is Required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Parent Mobile_no:" (keypress)="keyPressNumber($event)" type="text" name="Parent_mobile_no" [(ngModel)]="Parent_mobile_no"
+                        #mob1="ngModel" required required minlength="10">
+                      <mat-error *ngIf="mob1.hasError('min')">
+                        Required 10 Digit
+                      </mat-error>
+                      <mat-error *ngIf="mob1.hasError('required')">
+                       Parent Mobile Number is Required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Address" name="Address" #ad="ngModel" [(ngModel)]="Address" required>
+                      <mat-error *ngIf="ad.hasError('required')">
+                        Address is required
+                      </mat-error>
+                    </mat-form-field>
+
+                    <!-- <mat-form-field class="example-full-width">
+                      <input matInput [matDatepicker]="picker" name="Date_of_birth" [(ngModel)]="Date_of_birth" placeholder="Date of birth">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field> -->
+
+
+                    <mat-form-field class="example-full-width">
+                      <input matInput disabled placeholder="Fees" (keypress)="keyPressText($event)" ngModel #fees="ngModel" required
+                        [(ngModel)]="Fees" name="Fees" min="2000">
+                      <mat-error *ngIf="fees?.hasError('required')">
+                        Fee is Required
+                      </mat-error>
+                    </mat-form-field>
+
+
+
+
+                    <mat-form-field>
+                      <input disabled matInput [matDatepicker]="Joining_date" [value]="Joining_date">
+                      <!-- <mat-datepicker-toggle matSuffix [for]="Joining_date"></mat-datepicker-toggle> -->
+                    </mat-form-field>
+
+                    <!-- <mat-form-field class="example-full-width">
+                      <input matInput [matDatepicker]="picker" name="Joining_date" [(ngModel)]="Joining_date" placeholder="Joining date of student">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field> -->
+
+
+
+                </div>
+                <div class="rows">
+                  <button mat-raised-button type="submit" [disabled]="!f.valid"  color="primary">Update Student</button>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

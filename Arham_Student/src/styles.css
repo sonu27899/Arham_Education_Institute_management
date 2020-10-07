@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+/* @import './assets/css/bootstrap-social.css'; */
+/* @import './assets/css/circle.css';
+@import './assets/css/dashboard.css';
+@import './assets/css/loading-bar-min.css';
+@import './assets/css/login_signup.css';
+@import './assets/css/main.css';
+@import './assets/css/tests.css'; */
+
+/* @import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'; */
+/* @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+@import 'https://fonts.googleapis.com/css?family=Anton|Courgette" rel="stylesheet'; */
+
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

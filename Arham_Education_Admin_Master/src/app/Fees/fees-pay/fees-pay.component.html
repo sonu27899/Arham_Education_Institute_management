@@ -1,0 +1,158 @@
+<div class="container">
+  <div class="card">
+      <div class="card-header card-header-primary">
+      <div class="row">
+          <div class="col">
+              <h1 class="card-title">Student Fees Details</h1>
+              <p class="card-category">click to payment of fee</p>
+          </div>
+      </div>
+      </div>
+
+      <div class="card-body">
+          <div class="card">
+
+
+              <div class="card-body">
+                  <div class="card-text">
+                    <div class="row">
+                      <div class="col-5 col-md-2">Student Name:</div>
+                      <div class="col-7 col-md-10">{{Name|uppercase}}</div>
+                  </div>
+                      <div class="row">
+                          <div class="col-5 col-md-2">EmailID:</div>
+                          <div class="col-7 col-md-10">{{Email_id}}</div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-5 col-md-2">Batch Name:</div>
+                        <div class="col-7 col-md-10">{{Batch_name|uppercase}}</div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-5 col-md-2">Mobile No:</div>
+                      <div class="col-7 col-md-10">{{Phone_no|number}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-5 col-md-2">Joining Date:</div>
+                    <div class="col-7 col-md-10">{{Joining_date|date}}</div>
+                </div>
+
+
+                      <div class="row">
+                          <div class="col-5 col-md-2">Total Fees:</div>
+                          <div class="col-7 col-md-10">{{totalFeeAmount|currency:'INR'}}</div>
+                      </div>
+                      <div class="row">
+                          <div class="col-5 col-md-2">Pending Fees:</div>
+                          <div class="col-7 col-md-10">{{pendingFeeAmount|currency:'INR'}}</div>
+                      </div>
+                      <div class="row">
+                          <div class="col text-center">
+                              <button mat-raised-button color="primary" [disabled]='!feelessFlag' class="btn" (click)="showFeePaymentOption()" >Fee Payments</button>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="fee-container" *ngIf="feePaymentFlag">
+                      <div class="row">
+                          <div class="col">
+                              <h2 class="card-title">
+                                  Fee Payment
+                              </h2>
+                          </div>
+                      </div>
+                      <form (ngSubmit)="searchStudent()" #f="ngForm">
+                          <div class="row">
+                              <div class="col-12 col-md-9">
+                                      <mat-form-field class="form-field" appearance="fill">
+                                          <mat-label>Amount</mat-label>
+                                          <input matInput type="number" class="example-right-align" placeholder="Amount" ngModel #fee_Amount="ngModel" required
+                                          [(ngModel)]="Feeamount" name="totalFeeAmount" min="1000" max="50000">
+                                          <span matPrefix>Rs.&nbsp;</span>
+                                          <span matSuffix>.00</span>
+                                          <mat-error *ngIf="fee_Amount?.hasError('required')">
+                                          Required
+                                          </mat-error>
+                                      </mat-form-field>
+                              </div>
+                              <div class="col col-md-3 text-center">
+                                  <div class="form-field">
+                                      <button mat-raised-button color="primary" (click)="payfee()" >Pay</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h3 class="card-title ">Recent Transactions</h3>
+        <p class="card-category"> click on header to sort the data</p>
+      </div>
+
+      <div class="card-body" *ngIf="!stflag">
+        <div class="table-responsive">
+          <h6>*No Record Found</h6>
+
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="table-responsive">
+          <!-- stock table details -->
+
+
+          <table mat-table [dataSource]="Student_dataSource" matSort multiTemplateDataRows>
+            <tbody>
+              <ng-container matColumnDef="Transaction_id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Id </th>
+                <td mat-cell *matCellDef="let item"> {{item.Transaction_id}} </td>
+              </ng-container>
+
+
+
+              <ng-container matColumnDef="Paid_amount">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+                <td mat-cell *matCellDef="let item"> {{item.Paid_amount | currency:'INR'}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                <td mat-cell *matCellDef="let item"> {{item.Date|date}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="trans_displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: trans_displayedColumns;"></tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+        <div class="row">
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

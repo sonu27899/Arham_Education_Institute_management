@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 mat-dialog-title>Update-Batch</h1>
+
+
+  <form class="example-form" (ngSubmit)="onclickupdate()" #f="ngForm" name="Add_Batch_form">
+    <mat-form-field class="example-full-width">
+      <input matInput name="batch_name"  ngModel #batch_name="ngModel" required placeholder="batch Name"
+        [(ngModel)]="Batch_name">
+
+        <mat-error *ngIf="batch_name?.hasError('required')">
+        Batch Name Is Required
+      </mat-error>
+
+    </mat-form-field>
+
+    <br><br>
+  <button mat-raised-button color="primary"  type="submit" [disabled]="!f.valid ">Update</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+
+</form>
+</div>
+
+
+
+

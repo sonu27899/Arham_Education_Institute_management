@@ -1,0 +1,67 @@
+<div *ngIf="spinner_Flag!=1"  class="wrapper">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="Question_arr.length>0" style="border: 1px solid black;">
+
+  <div  class="preview">
+
+    <div ng-repeat="question in liveCtrl.questions | startFrom:liveCtrl.currentPage*liveCtrl.pageSize | limitTo:1" class="questionsBox" >
+      <div  class="questions" style="background-color: indigo;height: 40px;"><p style="float: right;">Time Left : {{hours}}Hourse : {{minutes}}Minutes : {{seconds}} Seconds</p></div>
+      <div  class="questions" style="background-color: indigo;">{{Question_arr[ind].Question}}   </div>
+      <ul class="answerList">
+        <mat-radio-group (change)="onClickOptionchange(ind)" aria-labelledby="example-radio-group-label" class="example-radio-group" name="Choice" [(ngModel)]="SelectedOption">
+            <li>
+                  <mat-radio-button color="primary"   name="answerGroup" value="{{Question_arr[ind].Option1}}">&nbsp;{{Question_arr[ind].Option1}}</mat-radio-button>
+            </li>
+            <li>
+
+                  <mat-radio-button color="primary"   name="answerGroup" value="{{Question_arr[ind].Option2}}">&nbsp;{{Question_arr[ind].Option2}}</mat-radio-button>
+            </li>
+            <li>
+
+                  <mat-radio-button color="primary"   name="answerGroup" value="{{Question_arr[ind].Option3}}">&nbsp;{{Question_arr[ind].Option3}}</mat-radio-button>
+            </li>
+            <li>
+                  <mat-radio-button color="primary"   name="answerGroup" value="{{Question_arr[ind].Option4}}">&nbsp;{{Question_arr[ind].Option4}}</mat-radio-button>
+            </li>
+            <li>
+              <button mat-stroked-button color="primary" (click)="onClickClear(ind)">Clear Choice</button>
+            </li>
+          </mat-radio-group>
+      </ul>
+
+      <div>
+        <button mat-raised-button [disabled]="ind==Question_arr.length-1" (click)="onSaveNext()" color="primary" >Save & Next</button>&nbsp;
+        <button mat-raised-button [disabled]="ind==0" (click)="onPrevious()" >Previous</button>&nbsp;
+        <button mat-raised-button [disabled]="ind!=Question_arr.length-1" (click)="onClickSubmit()" color="warn">Submit</button>
+        <span style="float: right;">{{ind+1}} of {{Question_arr.length}}</span>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <h2>Question Pallette</h2>
+      <div class="row">
+         <div class="col-12 ">
+             <div class="question-pallete">
+              <div *ngFor="let item of Question_arr,let i=index" style="display: inline;">
+                 <button mat-raised-button color={{colors[i]}} (click)="onClickPallette(i)">
+                     {{i+1}}
+                 </button>&nbsp;
+             </div>
+
+             <div class="info" >
+              <mat-label style="color: indigo;">Attempted</mat-label>&nbsp;
+              <mat-label style="color: red;">Unanswered</mat-label>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+
+
+  </div>
+
+
+</div>
+

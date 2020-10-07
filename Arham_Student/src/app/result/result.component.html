@@ -1,0 +1,31 @@
+<br>
+<div style="text-align: center;" *ngIf="!exams.length">
+  <h1 style="text-decoration: underline;">NO RESULTS FOUND</h1>
+</div>
+<div class="container" *ngIf="exams.length">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let exam of exams">
+      <br>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <mat-card-title>
+            <h4>{{exam.Exam_name}}</h4>
+          </mat-card-title>
+
+          <br>
+          <mat-card-subtitle>
+            <label>Time:</label>
+            {{exam.Time}}
+          </mat-card-subtitle>
+
+          <mat-card-subtitle>
+           <b> <label>Obtained Mark:</label></b>
+            {{exam.Obtained_Marks}}/{{exam.Marks}}
+          </mat-card-subtitle>
+
+          <button mat-raised-button color="primary" (click)="onclickResult(exam)">View Result</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

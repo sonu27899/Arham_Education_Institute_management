@@ -1,0 +1,75 @@
+<html>
+  <head>
+
+    <script>
+      document.onkeydown = function (e) {
+        return false;
+}
+    </script>
+
+  </head>
+  <body>
+
+    <div *ngIf="spinner_Flag!=1" class="wrapper">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="Question_arr.length>0">
+
+      <div  class="preview">
+
+
+        <div>
+          <p style="font-size: x-large;"> Result : {{marks_obtained}} / {{this.Question_arr.length*4}} Marks Scored</p>
+          <p style="font-size: x-large;"> Percentage : {{percentage|number : '1.2-2'}} % </p>
+          <div style="float: right;">
+
+          </div>
+        </div>
+
+
+
+        <div  *ngFor="let item of Question_arr;let i=index" class="questionsBox" >
+
+          <div  class="questions" style="background-color: indigo;">{{item.Question}}</div>
+
+          <ul class="answerList">
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"  [(ngModel)]="SelectedOption[i]">
+                <li>
+                      <mat-radio-button color="primary" disabled   name="{{item.Option1}}" value="{{item.Option1}}">&nbsp;{{item.Option1}}</mat-radio-button>
+                </li>
+                <li>
+
+                      <mat-radio-button color="primary" disabled  name="{{item.Option2}}" value="{{item.Option2}}">&nbsp;{{item.Option2}}</mat-radio-button>
+                </li>
+                <li>
+
+                      <mat-radio-button color="primary" disabled  name="{{item.Option3}}" value="{{item.Option3}}">&nbsp;{{item.Option3}}</mat-radio-button>
+                </li>
+                <li>
+                      <mat-radio-button color="primary" disabled  name="{{item.Option4}}" value="{{item.Option4}}">&nbsp;{{item.Option4}}</mat-radio-button>
+                </li>
+              </mat-radio-group>
+                <li>
+                  <mat-label style="color:{{colors[i]}}" >Correct Answer : {{item.Answer}}</mat-label>
+                </li>
+          </ul>
+
+        </div>
+
+      </div>
+      <div style="text-align: center;">
+        <button mat-raised-button color="primary" (click)="onclickDone()">Done!</button>
+      </div>
+
+    </div>
+
+
+    <script>
+
+
+    </script>
+
+
+  </body>
+</html>
+

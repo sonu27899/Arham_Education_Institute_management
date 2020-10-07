@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 mat-dialog-title>Update-Tag</h1>
+
+
+  <form class="example-form" (ngSubmit)="onclickUpdate()" #f="ngForm" name="Update_Subject_form">
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Select Subject" required #Select_subject="ngModel" name="Select_subject"
+        [(ngModel)]="Subject_id" class="example-full-width"  placeholder="Name">
+        <mat-option *ngFor="let item of subject_list" [value]="item.Subject_id">
+          {{item.Name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="Select_subject.hasError('required')">
+        Subject Must be selected
+      </mat-error>
+    </mat-form-field>
+
+
+    <br><br>
+
+    <mat-form-field class="example-full-width">
+      <input matInput name="topic_name"  ngModel #subject_name="ngModel" required placeholder="topic name"
+        [(ngModel)]="Name">
+
+        <mat-error *ngIf="subject_name?.hasError('required')">
+          Topic Is Required
+      </mat-error>
+
+    </mat-form-field>
+
+
+
+
+    <br><br>
+  <button mat-raised-button color="primary"  type="submit" [disabled]="!f.valid ">ADD</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+
+</form>
+</div>

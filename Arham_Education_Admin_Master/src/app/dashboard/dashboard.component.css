@@ -1,0 +1,62 @@
+h6
+{
+  color: red;
+  font-style: italic,bold;
+}
+
+
+.btn
+{
+  background-color: rgb(156, 39, 176);
+  color: #ffffff;
+  padding:2px;
+}
+
+mat-icon{
+  color: #ffffff;
+}
+
+.search
+{
+  padding-top: 25px;
+}
+
+.btn{
+  margin-top: 25px;
+  background-color:rgb(156, 39, 176);
+}
+
+.size
+{
+  width: 90%;
+  padding-left: 30px;
+}
+
+th{
+  color: rgb(156, 39, 176);
+}
+
+button.mat-mini-fab
+{
+  background-color: rgb(156, 39, 176);
+}
+
+mat-icon{
+  color: #ffffff;
+}
+.example-full-width {
+  width: 100%;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+table {
+  width: 100%;
+}
+
+
+

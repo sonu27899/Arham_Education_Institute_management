@@ -1,0 +1,33 @@
+<br>
+<div style="text-align: center;" *ngIf="!view_flag">
+  <h1 style="text-decoration: underline;">NO PENDING EXAMS</h1>
+</div>
+<div class="container" *ngIf="view_flag">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let exam of exams">
+      <br>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <mat-card-title>
+            {{exam.Exam_name}}
+          </mat-card-title>
+
+          <br>
+          <mat-card-subtitle>
+            <label>Time:</label>
+            {{exam.Time}}
+          </mat-card-subtitle>
+
+          <mat-card-subtitle>
+           <b> <label>Total Mark:</label></b>
+            {{exam.Marks}}
+          </mat-card-subtitle>
+
+          <button mat-raised-button color="primary" (click)="onclickexam(exam)">Start Exam</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+

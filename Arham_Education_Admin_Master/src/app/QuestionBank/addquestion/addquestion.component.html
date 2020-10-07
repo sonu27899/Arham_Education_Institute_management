@@ -1,0 +1,130 @@
+
+<div class="container">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">New Question</h4>
+              <p class="card-category">New Question is being added</p>
+            </div>
+            <div class="card-body">
+              <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
+                <div class="rows">
+
+
+                  <mat-form-field class="example-full-width">
+                    <textarea  cdkTextareaAutosize
+                    #autosize="cdkTextareaAutosize"
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5" matInput placeholder="Add Question here"  ngModel #question_name="ngModel" required
+                      [(ngModel)]="Question" name="Name1"></textarea>
+                    <mat-error *ngIf="question_name?.hasError('required')">
+                      Question is Required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Option1"  ngModel #option1="ngModel" required
+                      [(ngModel)]="Option1" name="Name2">
+                    <mat-error *ngIf="option1?.hasError('required')">
+                      Option1 is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Option2"  ngModel #option2="ngModel" required
+                      [(ngModel)]="Option2" name="Name3">
+                    <mat-error *ngIf="option2?.hasError('required')">
+                      Option2 is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Option3"  ngModel #option3="ngModel" required
+                      [(ngModel)]="Option3" name="Name4">
+                    <mat-error *ngIf="option1?.hasError('required')">
+                      Option3 is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Option4"  ngModel #option4="ngModel" required
+                      [(ngModel)]="Option4" name="Name5">
+                    <mat-error *ngIf="option4?.hasError('required')">
+                      Option4 is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Answer (Write 1,2,3,or 4 in text)"  ngModel #answer="ngModel" required
+                      [(ngModel)]="Answer" name="Name6">
+                    <mat-error *ngIf="answer?.hasError('required')">
+                      Answer is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select Subject" (selectionChange)="subject_select()" required #subject="ngModel" name="subject"
+                      [(ngModel)]="subject_id" class="example-full-width">
+                      <mat-option *ngFor="let item of subject_list" [value]="item.Subject_id">
+                        {{item.Name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="subject.hasError('required')">
+                      Subject Must be selected
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select Topic"   required #topic="ngModel" name="topic"
+                      [(ngModel)]="tag_id" class="example-full-width">
+                      <mat-option *ngFor="let item of tag_list" [value]="item.Tag_id">
+                        {{item.Name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="topic.hasError('required')">
+                      Topic Must be selected
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select Difficulty Level" required #diff="ngModel" name="diff"
+                      [(ngModel)]="diff_id" class="example-full-width">
+                      <mat-option  value="1">Easy </mat-option>
+                      <mat-option  value="2">Mideum </mat-option>
+                      <mat-option  value="3">Hard</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="diff.hasError('required')">
+                      Difficulty Must be selected
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+                </div>
+                <div class="rows">
+                  <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Question</button>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,144 @@
+
+
+              <div class="container">
+                <div class="content">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="card">
+                          <div class="card-header card-header-primary">
+                            <h4 class="card-title">Create Test</h4>
+                            <p class="card-category">New Test is being added</p>
+                          </div>
+                          <div class="card-body">
+                            <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm" name="Add_product_form">
+                              <div class="rows">
+
+                                <mat-form-field style="width: 100%;">
+                                  <mat-label>Exam Name</mat-label>
+                                  <input matInput type="text" name="Name" [(ngModel)]="name" placeholder="Exam name">
+                                </mat-form-field>
+
+
+
+                <mat-form-field style="width: 100%;">
+                  <mat-label>Select Batch</mat-label>
+                  <mat-select  (selectionChange)="batch_select()" name="Batch" [(ngModel)]="batch_id">
+                    <mat-option *ngFor="let item of batch_list" [value]="item.Batch_id">
+                      {{item.Batch_name}}
+                    </mat-option>
+                  </mat-select>
+
+                </mat-form-field>
+
+
+                <mat-form-field style="width: 100%;">
+                  <mat-label>Select Subject</mat-label>
+                  <mat-select (selectionChange)="subject_select()" name="Subject" [(ngModel)]="subject_obj" multiple>
+                    <mat-option *ngFor="let item of subject_list" [value]="item">
+                      {{item.Name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field style="width: 100%;">
+                  <mat-label>Time in minutes</mat-label>
+                  <input matInput type="number" name="Time" [(ngModel)]="time" (change)="onClickChange()"  min="0" max="180">
+                </mat-form-field>
+
+
+
+                <label id="example-radio-group-label">Select your choice</label>
+                <br>
+                <mat-radio-group (change)="onChoiceChange()" aria-labelledby="example-radio-group-label" class="example-radio-group" name="Choice" [(ngModel)]="choice">
+                  <mat-radio-button color="primary" value="Random" >
+                    Random
+                  </mat-radio-button>
+                  &nbsp;&nbsp;&nbsp;
+                  <mat-radio-button color="primary" value="Custom" >
+                    Custom
+                  </mat-radio-button>
+                </mat-radio-group>
+
+
+
+                <div *ngIf="choice=='Random'">
+                  <br><br>
+                  <table *ngIf="subject_obj.length>0" class="example-full-width">
+                    <thead>
+                      <th>Subject</th>
+                      <th>Number of Question</th>
+                    </thead>
+                    <tr *ngFor="let item of subject_obj;let i=index">
+                      <td>{{item.Name}}</td>
+                      <td>
+                        <mat-form-field>
+                        <input matInput type="number" name="qty" (change)="onClickqtyChange()" [(ngModel)]="qty[i]">
+                        </mat-form-field>
+                      </td>
+                    </tr>
+                  </table>
+
+                </div>
+
+                <div *ngIf="choice=='Custom'">
+                  <br><br>
+                    <mat-label *ngIf="tag_list.length>0">Select Tags</mat-label>
+
+                  <section class="example-section" *ngFor="let item of tag_list">
+                    <mat-checkbox color="primary" (change)="onTagchanged(item)" name="Tag"  class="example-margin">{{item.Name}}</mat-checkbox>
+                  </section>
+
+                  <table *ngIf="question_select.length>0" class="example-full-width">
+                    <thead>
+                      <th>Tag</th>
+                      <th>Difficulty</th>
+                      <th>Number of Accurance</th>
+                      <th>Number of Question</th>
+                      <th>Action</th>
+                    </thead>
+                    <tr *ngFor="let item of question_select;let i=index">
+                      <td>{{item.tag.Name}}</td>
+                      <td>{{item.Difficulty.Difficulty_name}}</td>
+
+                      <td>
+                        <mat-form-field>
+                        <input matInput type="number" name="Count" [(ngModel)]="count[i]">
+                        </mat-form-field>
+                      </td>
+
+                      <td>
+                        <mat-form-field>
+                        <input matInput type="number" name="qty" (change)="onClickqtyChange()" [(ngModel)]="qty[i]">
+                        </mat-form-field>
+                      </td>
+                      <td>
+                        <button mat-raised-button (click)="onClickdelete(item)" class="btn">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </table>
+
+                </div>
+
+
+
+
+					    </div>
+              <br><br>
+              <div class="rows">
+                <button mat-raised-button color="primary" type="submit" class="btn">Create Test</button>
+
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <button mat-raised-button color="warn" >CANCEL</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

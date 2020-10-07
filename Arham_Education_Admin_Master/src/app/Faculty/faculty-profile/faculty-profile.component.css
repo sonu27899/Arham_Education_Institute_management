@@ -1,0 +1,41 @@
+::ng-deep.mat-form-field-underline {
+
+  background-color: black !important;
+  color: black;
+}
+
+::ng-deep.mat-form-field-ripple {
+
+ background-color: black !important;;
+ color:black;
+}
+
+
+body{
+  overflow-x: hidden;
+}
+
+.btn{
+  margin-top: 25px;
+  background-color:rgb(156, 39, 176);
+  color: #ffffff;
+}
+
+
+img{
+  margin-left:50px;
+  margin-top: 80px;
+  height:60%;
+  width: 70%;
+}
+p.field
+{
+  color:black;
+  padding-top: 8px;
+}
+
+p.value
+{
+  font-weight: bold;
+  padding-top: 8px;
+}

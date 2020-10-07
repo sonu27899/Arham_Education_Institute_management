@@ -1,0 +1,42 @@
+<div  style="border: 1px solid black; width: auto;" >
+  <h1 mat-dialog-title>Question View</h1>
+  <div  class="preview">
+
+    <div  class="questionsBox" style="word-wrap:break-word;display:block;" ></div>
+
+      <div  class="questions"  style="background-color: indigo; word-wrap:break-word;display:block;">{{Question}}   </div>
+
+      <ul class="answerList">
+
+        <mat-radio-group  aria-labelledby="example-radio-group-label" class="example-radio-group" name="Choice">
+            <li>
+                  <mat-radio-button color="primary"   name="answerGroup" >&nbsp;{{Option1}}</mat-radio-button>
+            </li>
+            <li>
+
+                  <mat-radio-button color="primary"   name="answerGroup" >&nbsp;{{Option2}}</mat-radio-button>
+            </li>
+            <li>
+
+                  <mat-radio-button color="primary"   name="answerGroup" >&nbsp;{{Option3}}</mat-radio-button>
+            </li>
+            <li>
+                  <mat-radio-button color="primary"   name="answerGroup">&nbsp;{{Option4}}</mat-radio-button>
+            </li>
+          </mat-radio-group>
+      </ul>
+
+      <div>
+        <h3 mat-dialog-title>Answer</h3>
+        <div  class="questions"  style="background-color: indigo; word-wrap:break-word;display:block;">{{Answer}}   </div>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+
+
+      </div>
+
+    </div>
+  </div>
+
+

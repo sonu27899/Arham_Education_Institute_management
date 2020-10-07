@@ -1,0 +1,294 @@
+
+
+<div class="main-panels">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- oluser -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-warning card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">account_circle</i>
+              </div>
+              <p class="card-category">Student</p>
+              <h3 class="card-title">
+                <small>{{totalstudent}}</small>
+              </h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+
+                <i class="material-icons">update</i> Just Updated
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- offlineuser -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-success card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">subject</i>
+              </div>
+              <p class="card-category">Batch</p>
+              <h3 class="card-title">
+                <small>{{totalbatch}}</small>
+              </h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">update</i> Just Updated
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- emp -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-danger card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">how_to_reg</i>
+              </div>
+              <p class="card-category">Employees</p>
+              <h3 class="card-title">
+                <small>{{totalfaculty}}</small>
+              </h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">update</i> Just Updated
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sup -->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <p class="card-category">Question Bank</p>
+              <h3 class="card-title">
+                <small>{{totalquestion}}</small>
+              </h3>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">update</i> Just Updated
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- chart section -->
+      <div class="row">
+        <!-- weekly chart -->
+        <div class="col-md-6">
+          <div class="card card-chart">
+            <div class="card-header card-header-warning">
+              <div class="ct-chart" style="height:270px;">
+                <canvas id="linechart"></canvas>
+              </div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Exams Taken</h4>
+              <p class="card-category">Per Month Exam</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">date_range</i>Exam Taken By Per Month
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bar chart -->
+        <div class="col-md-6">
+          <div class="card card-chart">
+            <div class="card-header card-header-success">
+              <div class="ct-chart">
+                <div style="height:270px;">
+                  <canvas id="barchart"></canvas>
+                  <!-- <canvas baseChart
+                                    [datasets]="barChartData"
+                                    [labels]="barChartLabels"
+                                    [options]="barChartOptions"
+                                    [legend]="barChartLegend"
+                                    [chartType]="barChartType">
+                            </canvas> -->
+                </div>
+
+              </div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Performance</h4>
+              <p class="card-category">Batch Performance</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">subject</i> Performance Per Batch
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <!-- pie chart -->
+        <div class="col-md-6">
+          <div class="card card-chart">
+            <div class="card-header card-header-danger">
+              <div class="ct-chart" style="height:270px;">
+                <canvas id="piechart"></canvas>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h4 class="card-title">Transactions</h4>
+              <p class="card-category">Fees And Salary</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">money</i> Comparing Fees Get and Salary Pay By Current Month
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+          <div class="card card-chart">
+            <div class="card-header card-header-info">
+              <div class="ct-chart" style="height:215px">
+                <!-- //order table details -->
+
+
+                <table class="order_tbl" mat-table [dataSource]="exam_dataSource" matSort
+                  multiTemplateDataRows>
+                  <tbody>
+                    <ng-container matColumnDef="Exam_name">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Exam Name </th>
+                      <td mat-cell *matCellDef="let item"> {{item.Exam_name | uppercase}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Batch_name">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>Batch Name</th>
+                      <td mat-cell *matCellDef="let item"> {{item.Batch_name | uppercase}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Marks">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Mark</th>
+                      <td mat-cell *matCellDef="let item"> {{item.Marks}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Time">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>Durations</th>
+                      <td mat-cell *matCellDef="let item"> {{item.Time}}min </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="exam_displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: exam_displayedColumns;"></tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+                <div class="col-12" >
+                  <mat-paginator #examPaginator style="background-color: rgb(29,191,212);color:white" [pageSizeOptions]="[2,3]">
+                  </mat-paginator>
+                </div>
+
+
+
+
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Recent Exams</h4>
+              <p class="card-category">Exam</p>
+            </div>
+            <div class="card-footer">
+              <div class="stats">
+                <i class="material-icons">explicit</i>Total Exam taken by ecah year
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h3 class="card-title ">Recent Transactions</h3>
+              <p class="card-category"> click on header to sort the data</p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <!-- stock table details -->
+
+
+                <table mat-table [dataSource]="trans_dataSource" matSort multiTemplateDataRows>
+                  <tbody>
+                    <ng-container matColumnDef="Transaction_id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Transaction Id </th>
+                      <td mat-cell *matCellDef="let item"> {{item.Transaction_id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Name">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Student Name </th>
+                      <td mat-cell *matCellDef="let item"> {{item.Name | uppercase}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Phone_no">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile Number </th>
+                      <td mat-cell *matCellDef="let item"> {{item.Phone_no }} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="Batch_name">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Batch Name </th>
+                      <td mat-cell *matCellDef="let item"> {{item.Batch_name | uppercase}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Paid_amount">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+                      <td mat-cell *matCellDef="let item"> {{item.Paid_amount | currency:'INR'}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="Date">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                      <td mat-cell *matCellDef="let item"> {{item.Date|date}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="trans_displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: trans_displayedColumns;"></tr>
+                  </tbody>
+                </table>
+              </div>
+
+
+
+              <div class="row">
+
+
+              </div>
+
+              <!-- stock details end -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

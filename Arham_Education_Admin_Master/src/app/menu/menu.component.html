@@ -1,0 +1,180 @@
+<!-- Navbar -->
+<!-- <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['../menu']">
+            <i class="material-icons">dashboard</i>
+            <p class="d-lg-none d-md-block">
+              Stats
+            </p>
+          </a>
+        </li>
+           <li class="nav-item dropdown">
+          <a class="nav-link" [routerLink]="['profile_faculty']"  id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="material-icons">person</i>
+            <p class="d-lg-none d-md-block">
+              Account
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav> -->
+<!-- End Navbar -->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+     <mat-toolbar style="color: #673ab7;">
+
+        Arham Education
+
+    </mat-toolbar>
+    <mat-nav-list>
+
+
+
+
+
+
+            <ul >
+              <li >
+                <button class="menu_button" mat-button [routerLink]="['../menu']" routerLinkActive="router-link-active">
+                  <i class="material-icons">dashboard</i>
+                  Dashboard
+                </button>
+              </li>
+
+
+              <li *ngIf="role==1">
+                <button class="menu_button" mat-button [routerLink]="['batch_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">view_module</i>
+                  Manage Batch
+                </button>
+              </li>
+
+
+              <li class="nav-item " *ngIf="role==1">
+                <button class="menu_button" mat-button [routerLink]="['subject_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">subject</i>
+                  Manage Subject
+                </button>
+              </li>
+
+
+              <li class="nav-item " *ngIf="role==1">
+                <button class="menu_button" mat-button [routerLink]="['student_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">how_to_reg</i>
+                  Manage Student
+                </button>
+              </li>
+              <li class="nav-item " *ngIf="role==1">
+                <button class="menu_button" mat-button [routerLink]="['faculty_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">supervised_user_circle</i>
+                  Manage Faculty
+                </button>
+              </li>
+
+              <li class="nav-item ">
+                <button class="menu_button" mat-button [routerLink]="['question_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">assignment</i>
+                  Manage Question Bank
+                </button>
+              </li>
+
+              <li class="nav-item ">
+                <button class="menu_button" mat-button [routerLink]="['announcement_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">record_voice_over</i>
+                  Manage Announcement
+                </button>
+              </li>
+
+              <li class="nav-item ">
+                <button class="menu_button" mat-button [routerLink]="['attedance_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">event</i>
+                  Manage Attendance
+                </button>
+              </li>
+
+              <li class="nav-item" *ngIf="role==1">
+                <button class="menu_button" mat-button [routerLink]="['tag_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">import_contacts</i>
+                  Manage Topics
+                </button>
+              </li>
+
+              <li class="nav-item">
+                <button class="menu_button" mat-button [routerLink]="['todo_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">speaker_notes</i>
+                  Manage Todo List
+                </button>
+              </li>
+
+
+
+              <li class="nav-item ">
+                <button class="menu_button" mat-button [routerLink]="['exam_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">explicit</i>
+                  Manage Exams
+                </button>
+              </li>
+
+
+
+              <li class="nav-item " *ngIf="role==1 || role==3">
+                <button class="menu_button" mat-button [routerLink]="['fees_home']" routerLinkActive="router-link-active">
+                  <i class="material-icons">money</i>
+                  Manage Fees
+                </button>
+              </li>
+
+
+
+
+              <li class="nav-item ">
+                <button class="menu_button" mat-button  routerLinkActive="router-link-active">
+                  <i class="material-icons">toggle_off</i>
+                  <a (click)="logout()">Log Out</a>
+                </button>
+              </li>
+            </ul>
+
+
+  </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background: linear-gradient(60deg, #ab47bc, #8e24aa);">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="person">
+      <button class="nav-link" [routerLink]="['profile_faculty']"  id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" style="background: linear-gradient(60deg, #ab47bc, #8e24aa);border: none;">  <i class="material-icons">person</i> </button>
+          </div>
+      <!-- <span>ARHAM EDUCATION</span> -->
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+

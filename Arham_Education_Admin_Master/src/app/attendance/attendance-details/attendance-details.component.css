@@ -1,0 +1,63 @@
+::ng-deep.mat-form-field-underline {
+
+  background-color: black !important;
+  color: black;
+}
+
+::ng-deep.mat-form-field-ripple {
+
+ background-color: black !important;;
+ color:black;
+}
+
+.absent_class
+{
+  height: auto;
+  width: auto;
+  background-color: red;
+  display: inline-flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  align-items: flex-end;
+  font-size: large;
+}
+
+.info-card
+{
+  max-width: 300px;
+}
+
+
+
+.example-card
+{
+  max-width: 560px;
+  min-width: 360px;
+  margin: auto auto;
+}
+
+.mat-calendar-table-header th
+{
+  font-size: large;
+}
+
+.mat-calendar-body-label
+{
+  font-size: large;
+}
+
+.mat-calendar-body-cell-content
+{
+  font-size: large;
+}
+
+.example-custom-date-class {
+  background: red;
+  border-radius: 30%;
+  font-size: xx-large !important;
+}
+
+
+
+
+

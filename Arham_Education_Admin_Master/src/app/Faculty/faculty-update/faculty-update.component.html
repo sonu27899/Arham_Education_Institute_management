@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Faculty Update</h4>
+              <p class="card-category">Faculty is being Updated</p>
+            </div>
+            <div class="card-body">
+              <form class="example-form" (ngSubmit)="onclickUpdate()" #f="ngForm">
+                <div class="rows">
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Employee Name" (keypress)="keyPressText($event)" ngModel #employee_name="ngModel" required
+                      [(ngModel)]="Name" name="Name">
+                    <mat-error *ngIf="employee_name?.hasError('required')">
+                      Employee Name is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Mobile_no:" (keypress)="keyPressNumber($event)" type="text" name="Mobile_no" [(ngModel)]="Mobile_no"
+                      #mob1="ngModel" required required minlength="10">
+                    <mat-error *ngIf="mob1.hasError('minlength')">
+                      Required 10 Digit
+                    </mat-error>
+                    <mat-error *ngIf="mob1.hasError('required')">
+                      Mobile Number is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Qualification of Faculty" required #qualification_of_Faculty="ngModel" name="qualification_of_Faculty"
+                      [(ngModel)]="Qualification" class="example-full-width">
+                      <mat-option *ngFor="let item of qualifications" [value]="item">
+                        {{item}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="qualification_of_Faculty.hasError('required')">
+                      Faculty qualification  Must be selected
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker" name="DOB" [(ngModel)]="Date_of_birth" placeholder="Date of birth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width" >
+                    <input matInput placeholder="Salary" required #salary="ngModel" type="number" [(ngModel)]="Salary"
+                      name="Salary" (change)="onClickChange()" required min="6000" max="30000" >
+                    <mat-error *ngIf="salary?.hasError('required')">
+                      Salary is Must Required
+                    </mat-error>
+                    <mat-error *ngIf="salary?.hasError('min')">
+                      Salary too low
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="rows">
+                  <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Update Faculty</button>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

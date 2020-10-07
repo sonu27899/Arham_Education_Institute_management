@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>ARHAM EDUCATION</mat-toolbar>
+    <mat-nav-list>
+
+
+      <ul>
+        <li>
+
+          <button class="menu_button" mat-raised-button color="primary" [routerLink]="['../menu']" routerLinkActive="router-link-active">
+
+                    <mat-icon>dashboard</mat-icon>&nbsp;&nbsp;&nbsp;Dashboard
+
+          </button>
+        </li>
+        <li>
+          <button class="menu_button" mat-button [routerLink]="['profile']" routerLinkActive="router-link-active">
+            <i class="material-icons">person</i>&nbsp;&nbsp;&nbsp; Profile
+          </button>
+        </li>
+        <li>
+        <button class="menu_button" mat-button [routerLink]="['available-test']" routerLinkActive="router-link-active">
+          <i class="material-icons">library_books</i>&nbsp;&nbsp;&nbsp; Exam
+        </button>
+      </li>
+      <li>
+        <button class="menu_button" mat-button [routerLink]="['result']" routerLinkActive="router-link-active">
+          <i class="material-icons">assignment_turned_in</i>&nbsp;&nbsp;&nbsp; Result
+        </button>
+      </li>
+      <li>
+      <button class="menu_button" mat-button [routerLink]="['attendence']" routerLinkActive="router-link-active">
+        <i class="material-icons">event</i>&nbsp;&nbsp;&nbsp; Attendence
+      </button>
+    </li>
+    <li>
+      <button class="menu_button" mat-button [routerLink]="['fees']" routerLinkActive="router-link-active">
+        <i class="material-icons">local_atm</i>&nbsp;&nbsp;&nbsp; Fees
+      </button>
+    </li>
+    <li>
+      <button class="menu_button" mat-button (click)="logout()" routerLinkActive="router-link-active">
+        <i class="material-icons">exit_to_app</i>&nbsp;&nbsp;&nbsp; Log out
+      </button>
+    </li>
+      </ul>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!-- <span>ARHAM EDUCATION</span> -->
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

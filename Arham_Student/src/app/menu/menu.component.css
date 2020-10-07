@@ -1,0 +1,62 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 260px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: relative;
+  top: 0;
+  z-index: 1;
+}
+
+
+
+
+
+
+/*
+ .sidenav-container {
+  height: 100%;
+
+}
+
+.sidenav {
+  width: 280px;
+
+}
+
+.mat-toolbar.mat-primary {
+  position: relative;
+  top: 0;
+
+}
+ .center {
+  position:absolute;
+  opacity: 0.15;
+
+} */
+
+ul li
+{
+  display: block;
+  padding-top: 15px;
+}
+
+.menu_button
+{
+  height: 50px;
+  width: 90%;
+  text-align: left;
+}
+
+
+
+
+

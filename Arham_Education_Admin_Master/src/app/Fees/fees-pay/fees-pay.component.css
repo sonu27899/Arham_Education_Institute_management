@@ -1,0 +1,94 @@
+::ng-deep.mat-form-field-underline {
+
+  background-color: black !important;
+  color: black;
+}
+
+::ng-deep.mat-form-field-ripple {
+
+ background-color: black !important;;
+ color:black;
+}
+
+
+.b{
+  border: 1px solid red;
+}
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+.fee-container{
+  margin-top: 10px;
+}
+.form-field{
+  width:100%;
+  margin-top: 10px;
+}
+.table {
+  width: 100%;
+}
+
+h6
+{
+  color: red;
+  font-style: italic,bold;
+}
+
+
+.btn
+{
+  background-color: rgb(156, 39, 176);
+  color: #ffffff;
+  padding:2px;
+}
+
+mat-icon{
+  color: #ffffff;
+}
+
+.search
+{
+  padding-top: 25px;
+}
+
+.btn{
+  margin-top: 25px;
+  background-color:rgb(156, 39, 176);
+}
+
+.size
+{
+  width: 90%;
+  padding-left: 30px;
+}
+
+th{
+  color: rgb(156, 39, 176);
+}
+
+button.mat-mini-fab
+{
+  background-color: rgb(156, 39, 176);
+}
+
+mat-icon{
+  color: #ffffff;
+}
+.example-full-width {
+  width: 100%;
+}
+.example-form {
+  width: 100%;
+  margin-top:15px;
+}
+table {
+  width: 100%;
+}
+
+

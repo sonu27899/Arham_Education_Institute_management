@@ -1,0 +1,164 @@
+<div class="container">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">New Student</h4>
+              <p class="card-category">New Student is being added</p>
+            </div>
+            <div class="card-body">
+              <form class="example-form" (ngSubmit)="onclickAdd()" #f="ngForm">
+                <div class="rows">
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="First Name" (keypress)="keyPressText($event)" ngModel #Student_fname="ngModel" required
+                      [(ngModel)]="Name" name="fName">
+                    <mat-error *ngIf="Student_fname?.hasError('required')">
+                      Student Name is Required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Middle Name" (keypress)="keyPressText($event)" ngModel #Student_mname="ngModel" required
+                      [(ngModel)]="Middle_name" name="mName">
+                    <mat-error *ngIf="Student_mname?.hasError('required')">
+                      Middle Name is Required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Last Name" (keypress)="keyPressText($event)" ngModel #Student_lname="ngModel" required
+                      [(ngModel)]="Last_name" name="lName">
+                    <mat-error *ngIf="Student_lname?.hasError('required')">
+                      Last Name is Required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Parent Name" (keypress)="keyPressText($event)" ngModel #Student_pname="ngModel" required
+                      [(ngModel)]="Parent_name" name="pName">
+                    <mat-error *ngIf="Student_pname?.hasError('required')">
+                      Parent Name is Required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Address" name="Address" #ad="ngModel" [(ngModel)]="Address" required>
+                    <mat-error *ngIf="ad.hasError('required')">
+                      Address is required
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email_id" type="text" [(ngModel)]="Email_id" name="Email_id"
+                      #id="ngModel" email required>
+                    <mat-error *ngIf="id.hasError('email')">
+                      Email is Invalid
+                    </mat-error>
+                    <mat-error *ngIf="id.hasError('required')">
+                      Email is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Password:" type="password" [(ngModel)]="Password" name="Password"
+                      #pass="ngModel" required maxlength="8">
+                    <mat-error *ngIf="pass.hasError('min')">
+                      Password is too short
+                    </mat-error>
+                    <mat-error *ngIf="pass.hasError('required')">
+                      Password is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Mobile_no:" (keypress)="keyPressNumber($event)" type="text" name="Mobile_no" [(ngModel)]="Phone_no"
+                      #mob1="ngModel" required required minlength="10">
+                    <mat-error *ngIf="mob1.hasError('minlength')">
+                      Required 10 Digit
+                    </mat-error>
+                    <mat-error *ngIf="mob1.hasError('required')">
+                      Mobile Number is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput #input="ngModel"  [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="DOB" [(ngModel)]="Date_of_birth" placeholder="Date of birth">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Parent_Mobile_no:" (keypress)="keyPressNumber1($event)" type="text" name="Mobile_no1" [(ngModel)]="Parent_mobile_no"
+                      #mob2="ngModel" required required  minlength="10">
+                    <mat-error *ngIf="mob2.hasError('minlength')">
+                      Required 10 Digit
+                    </mat-error>
+                    <mat-error *ngIf="mob2.hasError('required')">
+                      Parent Mobile Number is Required
+                    </mat-error>
+                  </mat-form-field>
+
+
+
+                  <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select Batch" required #Select_Batch="ngModel" name="Select_Batch"
+                      [(ngModel)]="Batch_no" class="example-full-width">
+                      <mat-option *ngFor="let item of Batch_list" [value]="item.Batch_id">
+                        {{item.Batch_name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="Select_Batch.hasError('required')">
+                      Student Batch Must be selected
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <mat-select placeholder="Select Gender" required #gender="ngModel" name="gender"
+                      [(ngModel)]="Gender" class="example-full-width">
+                      <mat-option *ngFor="let item of type" [value]="item">
+                        {{item}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="gender.hasError('required')">
+                      Gender Type Must be selected
+                    </mat-error>
+                  </mat-form-field>
+
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Fees" required #salary="ngModel" type="number"  [(ngModel)]="Fees"
+                      name="Salary" (change)="onClickChange()" required min="10000" max="30000">
+                    <mat-error *ngIf="salary?.hasError('required')">
+                      Fees is Must Required
+                    </mat-error>
+                    <mat-error *ngIf="salary?.hasError('min')">
+                      Fees is more then 10k
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="rows">
+                  <button mat-raised-button type="submit" [disabled]="!f.valid" class="btn">Add Student</button>
+                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

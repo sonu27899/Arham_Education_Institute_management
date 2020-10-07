@@ -1,0 +1,11 @@
+
+<mat-list>
+  <div mat-subheader>Announcements</div>
+  <mat-list-item *ngFor="let announcement of announcements">
+    <mat-icon mat-list-icon>post_add</mat-icon>
+    <div mat-line>{{announcement.Title}}</div>
+    <div mat-line>{{announcement.Date|date}}</div>
+    <div mat-line style="font-size: larger;"> {{announcement.Announcemnet}} </div>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+  </mat-list>

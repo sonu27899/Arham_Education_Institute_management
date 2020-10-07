@@ -1,0 +1,89 @@
+<html>
+  <body>
+    <br>
+    <mat-card style="width:80%;margin: auto;font-size: 15px;">
+    <!-- <div>
+      <div class="row">
+      <div>
+          <div class="col-md-6"><b>Id</b> : {{studentId}}</div>
+      </div>
+      <div>
+          <div  class="col-md-6" ><b>Name</b> : {{studentName}} {{studentLastName}}</div>
+      </div>
+      </div>
+      <div class="row">
+      <div>
+          <div  class="col-md-6" ><b>Total Fee</b> : {{totalFeeAmount}}</div>
+      </div>
+      <div >
+          <div  class="col-md-6" ><b>Pending Fee</b> : {{pendingFeeAmount}}</div>
+      </div>
+
+
+    </div>
+  </div> -->
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <p><b>Id : </b></p>
+      <p>{{studentId}}</p>
+    </div>
+
+    <div class="col-md-6">
+      <p><b>Name : </b></p>
+      <p>{{studentName}} {{studentLastName}}</p>
+    </div>
+
+  </div>
+  <div class="row" >
+
+    <div class="col-md-6">
+      <p><b>Total Fees : </b></p>
+      <p>{{totalFeeAmount|currency:"₹"}}</p>
+    </div>
+
+    <div class="col-md-6">
+      <p><b>Pending Fees : </b></p>
+      <p>{{pendingFeeAmount|currency:"₹"}}</p>
+    </div>
+
+  </div>
+
+</mat-card>
+<br>
+
+<div style="text-align: center;" *ngIf="!fees_trans.length">
+  <h3 style="text-decoration: underline;">NO FEES TRANSACTION FOUND</h3>
+</div>
+
+    <div class="card-body" style="width:80%;margin: auto;" [hidden]="!fees_trans.length">
+      <mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="text-align: center;">
+          <!-- Transction ID Column -->
+          <!-- <ng-container matColumnDef="transactionID">
+            <mat-header-cell *matHeaderCellDef> Transaction ID. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Transaction_id}} </mat-cell>
+          </ng-container> -->
+
+          <!-- Pay Amount Column -->
+          <ng-container matColumnDef="paymentDate">
+            <mat-header-cell *matHeaderCellDef> Payment Date </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Date|date}} </mat-cell>
+          </ng-container>
+
+          <!-- Payment Date Column -->
+          <ng-container matColumnDef="paymentAmount">
+            <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Paid_amount|currency:"₹"}} </mat-cell>
+          </ng-container>
+
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+    </div>
+
+  </body>
+</html>

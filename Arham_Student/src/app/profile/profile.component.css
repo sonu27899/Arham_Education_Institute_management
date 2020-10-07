@@ -1,0 +1,61 @@
+.btn{
+  margin-top: 25px;
+  background-color:rgb(156, 39, 176);
+  color: #ffffff;
+}
+
+.size
+{
+  width: 80%;
+  padding-left: 30px;
+}
+
+.example-form {
+min-width: 150px;
+max-width: 500px;
+width: 100%;
+}
+
+.example-full-width {
+width: 100%;
+}
+
+.example-section {
+display: flex;
+align-content: center;
+align-items: center;
+height: 60px;
+width:100%;
+}
+
+.example-margin {
+margin: 0 10px;
+}
+
+
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+thead {
+background-color: #dddddd;
+}
+::ng-deep.mat-form-field-underline {
+
+  background-color: black !important;
+  color: black;
+}
+
+::ng-deep.mat-form-field-ripple {
+
+ background-color: black !important;;
+ color:black;
+}

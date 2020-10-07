@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 mat-dialog-title>Update-Todo</h1>
+
+
+  <form class="example-form" (ngSubmit)="onclickUpdate()" #f="ngForm" name="Update_Subject_form">
+    <mat-form-field class="example-full-width">
+      <input matInput name="subject_name"  ngModel #subject_name="ngModel" required placeholder="Update-todo"
+        [(ngModel)]="Topic">
+
+        <mat-error *ngIf="subject_name?.hasError('required')">
+          Todo Name Is Required
+      </mat-error>
+
+    </mat-form-field>
+
+    <br><br>
+  <button mat-raised-button color="primary"  type="submit" [disabled]="!f.valid ">Update</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button color="warn" (click)="onclickCancle()">CANCEL</button>
+
+</form>
+</div>
+
+
+
+

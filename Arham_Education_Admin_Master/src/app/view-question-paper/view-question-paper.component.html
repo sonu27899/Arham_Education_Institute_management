@@ -1,0 +1,64 @@
+
+<div  style="border: 1px solid black; width: auto;" id="htmlData" #htmlData >
+ <div class="card-header card-header-primary" style="background-color:rgb(156, 39, 176);">
+
+    <h4 style="color: #ffffff">Exam Name:&nbsp;{{Exam_name}}</h4>
+    <h4 style="color: #ffffff">Batch Name:&nbsp;{{Batch_name}}</h4>
+  </div>
+
+
+  <div   class="preview" *ngFor="let arr of questions">
+
+    &nbsp;&nbsp;&nbsp;
+      <div  class="questions"  style="  background-color:rgb(156, 39, 176); word-wrap:break-word;display:block;">{{arr.Question}}   </div>
+
+      <ul class="answerList">
+
+        <mat-radio-group  aria-labelledby="example-radio-group-label" class="example-radio-group" name="Choice">
+            <li>
+                  <mat-radio-button color="primary"  name="answerGroup" >&nbsp;{{arr.Option1}}</mat-radio-button>
+            </li>
+            <li>
+
+                  <mat-radio-button color="primary"  #button  name="answerGroup" >&nbsp;{{arr.Option2}}</mat-radio-button>
+            </li>
+            <li>
+
+                  <mat-radio-button color="primary"  #button  name="answerGroup" >&nbsp;{{arr.Option3}}</mat-radio-button>
+            </li>
+            <li>
+                  <mat-radio-button color="primary"  #button  name="answerGroup">&nbsp;{{arr.Option4}}</mat-radio-button>
+            </li>
+          </mat-radio-group>
+      </ul>
+
+      <div style="
+      font-size: 20px;">&nbsp;Topic Name:&nbsp;{{arr.topic_name}}</div>
+      <div>
+        <div style="
+        font-size: 20px;">&nbsp;Subject:&nbsp;{{arr.Name}}</div>
+        <div>
+
+
+        <div  class="questions"  style="background-color: indigo; word-wrap:break-word;display:block;">
+        <h4 mat-dialog-title> &nbsp;Answer</h4>
+         &nbsp;&nbsp; {{arr.Answer}}
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div>
+  </div>
+    <button class="btn btn-danger" style="margin-left:250px" value="CPTURE" (click)="downloadPDF()">Download PDF</button>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <button class="btn btn-danger" color="warn" (click)="onclickCancle()">CANCEL</button>
+  </div>
+
